@@ -15,6 +15,8 @@ import { NextResponse } from "next/server";
 const maxDuration = 1000 * 60 * 60; // 1 hour
 const dynamic = "force-dynamic";
 const revalidate = 0;
+const MAX_RETRIES = 3;
+const INITIAL_DELAY = 1000; // 1 second
 
 export async function GET() {
   try {
@@ -25,6 +27,7 @@ export async function GET() {
 
     const updatedProducts = await Promise.all(
       products.map(async (current) => {
+        await new Promise((resolve) => setTimeout(resolve, 10000));
         const scrapedProduct = await scrapeAmazonProduct(current.url);
         if (!scrapedProduct) return null;
         if (

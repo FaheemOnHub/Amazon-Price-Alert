@@ -34,7 +34,7 @@ export async function scrapeAmazonProduct(productUrl: string) {
     //cateogry
     const category = await getCategory($);
     //Extract discounted prices
-    const currentPrice = extractPrice(
+    let currentPrice = extractPrice(
       $(".priceToPay .a-price-whole"),
 
       $(".a.size.base.a-color-price"),
@@ -48,7 +48,9 @@ export async function scrapeAmazonProduct(productUrl: string) {
       $("#priceblock_dealprice"),
       $(".a-size-base.a-color-price")
     );
-
+    if (!currentPrice && !originalPrice) {
+      currentPrice = 0;
+    }
     const discountedPriceElements =
       $(".priceToPay .a-price-whole") ||
       $(".a.size.base.a-color-price") ||
