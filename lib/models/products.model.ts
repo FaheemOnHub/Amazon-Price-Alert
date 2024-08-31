@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
+    lastUpdated: { type: Date, default: Date.now },
+    createdAt: { type: Date, default: Date.now },
     url: {
       type: String,
       required: true,
