@@ -1,4 +1,4 @@
-# Price-Analyzer
+#  Price-Analyzer
 
 **Price-Analyzer** is a web application that tracks the prices of products on Amazon and sends email alerts to users when the price of a monitored product drops. This tool helps users save money by notifying them of the best time to purchase their desired products.
 <img width="1430" alt="Screenshot 2024-08-28 at 4 51 38 PM" src="https://github.com/user-attachments/assets/bf08c139-1805-4ffa-8472-54880bc75519">
